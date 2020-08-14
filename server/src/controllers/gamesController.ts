@@ -31,7 +31,10 @@ class GamesController{
   } 
 
   public delete  (req : Request,res: Response){
-    res.json({text: 'Borrando game'+ req.params.id});
+    const {id} = req.params;
+    //res.json({text: 'Borrando game'+ req.params.id});
+    pool.query('DELETE FROM games WHERE id = ?', [id]);
+      res.json({message: 'The game was-deleted');
   } 
 
   public update  (req : Request,res: Response){

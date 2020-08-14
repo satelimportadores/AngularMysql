@@ -43,7 +43,10 @@ class GamesController {
         });
     }
     delete(req, res) {
-        res.json({ text: 'Borrando game' + req.params.id });
+        const { id } = req.params;
+        //res.json({text: 'Borrando game'+ req.params.id});
+        database_1.default.query('DELETE FROM games WHERE id = ?', [id]);
+        res.json({ message: 'The game was-deleted' });
     }
     update(req, res) {
         res.json({ text: 'Actualizando game' + req.params.id });
