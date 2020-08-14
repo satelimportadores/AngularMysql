@@ -31,7 +31,7 @@ class GamesController {
                 res.json(result[0]);
             }
             else {
-                res.json({ text: 'Ningun game encontrado' });
+                res.status(404).json({ text: 'Ningun game encontrado' });
             }
         });
     }
