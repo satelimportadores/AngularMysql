@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class GamesController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('SELECT * FROM games', function (err, result, fields) {
+            database_1.default.query('SELECT * FROM games', function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
@@ -28,9 +28,9 @@ class GamesController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO games set ?', [req.body]);
+            database_1.default.query('INSERT INTO games set ?', [req.body]);
             res.json({ text: 'Creating game' });
-            console.log(req.body);
+            //console.log(req.body);
         });
     }
     delete(req, res) {

@@ -4,9 +4,10 @@ import pool from '../database';
 class GamesController{
   
   public async list (req: Request, res: Response) {
-    await pool.query('SELECT * FROM games', function(err, result, fields) {
-        if (err) throw err;
-        res.json(result);
+    pool.query('SELECT * FROM games', function (err, result, fields) {
+      if (err)
+        throw err;
+      res.json(result);
     });
 } 
 
@@ -15,9 +16,9 @@ class GamesController{
     }
 
   public async create  (req : Request,res: Response):Promise<void>{
-    await pool.query('INSERT INTO games set ?',[req.body])
+    pool.query('INSERT INTO games set ?', [req.body])
     res.json({text: 'Creating game'});
-    console.log(req.body);
+    //console.log(req.body);
    
   } 
 
