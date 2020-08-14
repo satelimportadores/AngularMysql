@@ -24,7 +24,13 @@ class GamesController {
         });
     }
     listOne(req, res) {
-        res.json({ text: 'Listando game' + req.params.id });
+        // res.json({text: 'Listando game'+ req.params.id});
+        const { id } = req.params;
+        database_1.default.query('SELECT * FROM games WHERE id = ?', [id], function (err, result, fields) {
+            if (err)
+                throw err;
+            res.json(result);
+        });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {

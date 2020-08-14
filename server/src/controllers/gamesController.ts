@@ -4,15 +4,21 @@ import pool from '../database';
 class GamesController{
   
   public async list (req: Request, res: Response) {
-    pool.query('SELECT * FROM games', function (err, result, fields) {
-      if (err)
-        throw err;
-      res.json(result);
-    });
-} 
+      pool.query('SELECT * FROM games', function (err, result, fields) {
+        if (err)
+          throw err;
+        res.json(result);
+      });
+  } 
 
   public listOne  (req : Request,res: Response){
-    res.json({text: 'Listando game'+ req.params.id});
+   // res.json({text: 'Listando game'+ req.params.id});
+   const {id} = req.params;
+    pool.query('SELECT * FROM games WHERE id = ?',[id], function (err, result, fields) {
+        if (err)
+          throw err;
+        res.json(result);
+      });
     }
 
   public async create  (req : Request,res: Response):Promise<void>{
