@@ -27,9 +27,12 @@ class GamesController {
         // res.json({text: 'Listando game'+ req.params.id});
         const { id } = req.params;
         database_1.default.query('SELECT * FROM games WHERE id = ?', [id], function (err, result, fields) {
-            if (err)
-                throw err;
-            res.json(result);
+            if (result.length > 0) {
+                res.json(result[0]);
+            }
+            else {
+                res.json({ text: 'Ningun game encontrado' });
+            }
         });
     }
     create(req, res) {
