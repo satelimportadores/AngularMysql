@@ -38,7 +38,10 @@ class GamesController{
   } 
 
   public update  (req : Request,res: Response){
-    res.json({text: 'Actualizando game'+ req.params.id});
+    
+    const {id} = req.params;
+    pool.query('UPDATE games set ? WHERE id = ?', [req.body, id]);
+    res.json({message: 'Actualizando game '+ req.params.id});
   } 
 
 

@@ -49,7 +49,9 @@ class GamesController {
         res.json({ message: 'The game was-deleted' });
     }
     update(req, res) {
-        res.json({ text: 'Actualizando game' + req.params.id });
+        const { id } = req.params;
+        database_1.default.query('UPDATE games set ? WHERE id = ?', [req.body, id]);
+        res.json({ message: 'Actualizando game ' + req.params.id });
     }
 }
 const gamesController = new GamesController();
