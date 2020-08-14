@@ -15,7 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
 class GamesController {
     list(req, res) {
-        res.json({ text: 'Listando games' });
+        return __awaiter(this, void 0, void 0, function* () {
+            yield database_1.default.query('SELECT * FROM games', function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
+        });
     }
     listOne(req, res) {
         res.json({ text: 'Listando game' + req.params.id });

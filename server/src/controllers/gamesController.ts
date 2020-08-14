@@ -2,9 +2,13 @@ import {Request, Response} from 'express';
 import pool from '../database';
 
 class GamesController{
- public list  (req : Request,res: Response){
-  res.json({text: 'Listando games'});
-  } 
+  
+  public async list (req: Request, res: Response) {
+    await pool.query('SELECT * FROM games', function(err, result, fields) {
+        if (err) throw err;
+        res.json(result);
+    });
+} 
 
   public listOne  (req : Request,res: Response){
     res.json({text: 'Listando game'+ req.params.id});
