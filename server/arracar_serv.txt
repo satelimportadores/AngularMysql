@@ -1,3 +1,14 @@
+--Backend--
+cd server
+npm init --yes
+npm i express #crear servidor
+npm i morgan #ver peticiones clientes consola
+npm i mysql #modulo de conexion
+npm i cors #comunicar dos servidor RESAPI
+npm install -g typescript #instalar typescript
+tsc --init
+
+
 cd server
 npm run build
 cd server
