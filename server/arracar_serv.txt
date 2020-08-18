@@ -13,3 +13,14 @@ cd server
 npm run build
 cd server
 npm run dev
+
+--Frontend--
+
+ng new client --routing
+ng g c components/navigation #crear componentes dentro de una carpeta
+ng g c components/game-form
+ng g c components/game-list
+
+ng g s services/games #crear servicios
+
+
