@@ -22,5 +22,6 @@ ng g c components/game-form
 ng g c components/game-list
 
 ng g s services/games #crear servicios
+ng server
 
 
