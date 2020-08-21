@@ -8,6 +8,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { GamaFormComponent } from './components/gama-form/gama-form.component';
 import { GamaListComponent } from './components/gama-list/gama-list.component';
 import { GamesService} from './services/games.service'
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GamesService} from './services/games.service'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     GamesService

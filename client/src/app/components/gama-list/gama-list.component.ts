@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { GamesService} from '../../services/games.service'
 import { Game } from 'src/app/models/Game';
 
@@ -9,6 +9,8 @@ import { Game } from 'src/app/models/Game';
 })
 export class GamaListComponent implements OnInit {
 
+  //Agregar un hostbinding para que cree columnas automaticamente
+  @HostBinding('class') classes = 'row';
   games: any = [];
 
   constructor(private gameService: GamesService) { }
