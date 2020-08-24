@@ -16,6 +16,11 @@ export class GamaListComponent implements OnInit {
   constructor(private gameService: GamesService) { }
 
   ngOnInit(){
+    this.getGames();
+  }
+
+  //Funciones
+  getGames(){
     this.gameService.getGames().subscribe(
       res => {
         this.games = res;
@@ -23,5 +28,19 @@ export class GamaListComponent implements OnInit {
       err => console.log(err)
     );
   }
+
+
+
+  deleteGame(id: string){
+     // console.log(id)
+     this.gameService.deleteGame(id).subscribe(
+       res => {
+          this.getGames();
+         console.log(res)
+       },
+       err => console.log(err)
+     )
+  }
+
 
 }
