@@ -13,6 +13,9 @@ const routes: Routes = [
     },
     {
       path: 'games/add',component: GamaFormComponent
+    },
+    {
+      path: 'games/edit/:id',component: GamaFormComponent
     }
 
   

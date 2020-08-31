@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Game } from 'src/app/models/Game';
-import { GamesService} from '../../services/games.service'
+import { GamesService} from '../../services/games.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gama-form',
@@ -18,7 +19,7 @@ export class GamaFormComponent implements OnInit {
     created_at: new Date()
   };
 
-  constructor(private gameService: GamesService) { }
+  constructor(private gameService: GamesService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +29,7 @@ export class GamaFormComponent implements OnInit {
     this.gameService.saveGame(this.game).subscribe(
       res => {
         console.log(res);
+        this.router.navigate(['/games']);
       },
         err => console.log(err)
     )
