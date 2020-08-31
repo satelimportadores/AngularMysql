@@ -9,7 +9,7 @@
         <img [src]="game.image" alt="card-img-top" class="card-img-top">
         <div class="card-body">
             <p>{{game.description}}</p>
-            <a href="" class="btn btn-info btn-block">Edit game</a>
+            <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block" >Edit game</a>
         </div>
     </div>
 </div>
